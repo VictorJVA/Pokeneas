@@ -1,12 +1,12 @@
 from flask import Flask
-import socket
+import os
 from pokeneas_data import pokeneas
 from routes import get_routes
 
 app = Flask(__name__)
 
 # Obtener el ID del contenedor
-container_id = socket.gethostname()
+container_id = os.uname()[1]
 
 # Obtener la ruta para la aplicación
 get_routes(app, pokeneas, container_id)
